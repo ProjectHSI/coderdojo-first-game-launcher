@@ -1,0 +1,91 @@
+.flex-container {
+    perspective: 1000px;
+    display: flex;
+    flex-direction: column;
+    width: 95vw;
+    height: 95vh;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#message {
+    animation-name: fadein-alert;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.5,1,1,0.5);
+    color: red;
+}
+
+#sendback {
+    font-size: 200%;
+    background-color: rgba(255, 255, 255, 0.10);
+    color: darkred;
+    border-radius: 10px;
+    height: 15vh;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#sendback:hover {
+    animation-name: fadein;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.5,1,1,0.5);
+    animation-fill-mode: backwards;
+}
+
+@keyframes fadein {
+    from {
+        border: 0px solid black;
+        background-color: rgba(255, 255, 255, 0.10);
+        padding-top: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+    }
+    to {
+        border: 1px solid whitesmoke;
+        background-color: rgba(255, 255, 255, 0.25);
+        padding-top: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+    }
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+@keyframes fadein-alert {
+    from {
+        border: 1px solid rgba(255, 0, 0, 0.75);
+        color: rgba(255, 0, 0, 0.5);
+        padding-top: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+    }
+    to {
+        border: 5px solid red;
+        color: rgba(255, 0, 0, 1);
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+.body {
+    background-color: black;
+}
