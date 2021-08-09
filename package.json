@@ -1,0 +1,22 @@
+{
+  "name": "coderdojo-first-game-server",
+  "version": "0.0.1",
+  "description": "CoderDojo First Game Server [CDFGS] Is a component of [Project HSI]'s CDFG Launcher. It is the be used in conjuction with a web browser [localhost:8980] or with the CDFG Electron Client. [CDFGEC] The code in it's entirely can be found on ProjectHSI/coderdojo-first-game-launcher.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProjectHSI/coderdojo-first-game-launcher.git"
+  },
+  "author": "[Project HSI]",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/ProjectHSI/coderdojo-first-game-launcher/issues"
+  },
+  "homepage": "https://github.com/ProjectHSI/coderdojo-first-game-launcher#readme",
+  "dependencies": {
+    "npmlog": "^5.0.0"
+  }
+}
