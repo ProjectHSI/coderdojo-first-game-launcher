@@ -15,6 +15,7 @@ const NANONAUT_X_SPEED = 5;
 const BACKGROUND_WIDTH = 1000;
 const NANONAUT_NR_FRAMES_PER_ROW = 5;
 const NANONAUT_NR_ANIMATION_FRAMES = 7;
+const NANONAUT_ANIMATION_SPEED = 3;
 /* 
 ---------
 - SETUP -
@@ -43,6 +44,7 @@ var nanonautIsInTheAir = false;
 var nanonautFrameNr = 0;
 var cameraX = 0;
 var cameraY = 0;
+var gameFrameCounter
 
 window.addEventListener('keydown', onKeyDown)
 
@@ -69,6 +71,8 @@ function mainLoop() {
 ------------
 */
 function update() {
+    gameFrameCounter = gameFrameCounter + 1
+
     // Update Nanonaut. - Book
     nanonautX = nanonautX + NANONAUT_X_SPEED;
     if (spaceKeyIsPressed && !nanonautIsInTheAir) {
@@ -81,6 +85,14 @@ function update() {
         nanonautY =  GROUND_Y - NANONAUT_HEIGHT;
         nanonautYSpeed = 0;
         nanonautIsInTheAir = false;
+    }
+
+    //  Update Animation. - Book
+    if ((gameFrameCounter % NANONAUT_ANIMATION_SPEED) === 0) {
+        nanonautFrameNr = nanonautFrameNr + 1;
+        if (nanonautFrameNr >= NANONAUT_NR_ANIMATION_FRAMES) {
+            nanonautFrameNr = 0
+        }
     }
 
     // Update camera. - Book
@@ -107,7 +119,11 @@ function draw() {
     c2d.fillRect(0, GROUND_Y - 40, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y + 40)
 
     // Draw the Nanonaut. - Book
-    c2d.drawImage(nanonautImage, nanonautX - cameraX, nanonautY - cameraY)
+    var nanonautSpriteSheetRow = Math.floor(nanonautFrameNr / NANONAUT_NR_FRAMES_PER_ROW);
+    var nanonautSpriteSheetColumn = nanonautFrameNr % NANONAUT_NR_FRAMES_PER_ROW;
+    var nanonautSpriteSheetX = nanonautSpriteSheetColumn * NANONAUT_WIDTH;
+    var nanonautSpriteSheetY = nanonautSpriteSheetRow * NANONAUT_HEIGHT;
+    c2d.drawImage(nanonautImage, nanonautSpriteSheetX, nanonautSpriteSheetY, NANONAUT_WIDTH, NANONAUT_HEIGHT, nanonautX - cameraX, nanonautY - cameraY, NANONAUT_WIDTH, NANONAUT_HEIGHT);
 }
 /*
 ----------------
