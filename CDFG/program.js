@@ -13,6 +13,8 @@ const SPACE_KEYCODE = 32;
 const NANONAUT_JUMP_SPEED = 20;
 const NANONAUT_X_SPEED = 5;
 const BACKGROUND_WIDTH = 1000;
+const NANONAUT_NR_FRAMES_PER_ROW = 5;
+const NANONAUT_NR_ANIMATION_FRAMES = 7;
 /* 
 ---------
 - SETUP -
@@ -28,16 +30,17 @@ canvas.height = CANVAS_HEIGHT;
 document.body.appendChild(canvas);
 
 var nanonautImage = new Image();
-nanonautImage.src = "Images/nanonaut.png";
+nanonautImage.src = "Images/animatedNanonaut.png";
 
 var backgroundImage = new Image();
 backgroundImage.src = "Images/background.png";
 
-var nanonautX = 50;
-var nanonautY = 40;
+var nanonautX = CANVAS_WIDTH / 2;
+var nanonautY = GROUND_Y - NANONAUT_HEIGHT;
 var nanonautYSpeed = 0;
 var spaceKeyIsPressed = false;
 var nanonautIsInTheAir = false;
+var nanonautFrameNr = 0;
 var cameraX = 0;
 var cameraY = 0;
 
