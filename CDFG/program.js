@@ -44,10 +44,21 @@ function mainLoop() {
     window.requestAnimationFrame(mainLoop);
 }
 /*
----------
+------------
 - UPDATING -
----------
+------------
 */
 function update() {
     // No update function yet lol
+}
+/*
+-----------
+- DRAWING -
+-----------
+*/
+function draw() {
+    c2d.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+
+    // Draw the Nanonaut. - Book
+    c2d.drawImage(nanonautImage, nanonautX, nanonautY)
 }
