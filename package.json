@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ProjectHSI/coderdojo-first-game-launcher#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "npmlog": "^5.0.0"
   }
 }
