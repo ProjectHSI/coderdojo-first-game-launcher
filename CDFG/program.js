@@ -5,9 +5,10 @@
 */
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 600;
-const NANNAUT_WIDTH = 181;
+const NANONAUT_WIDTH = 181;
 const NANONAUT_HEIGHT = 229;
 const GROUND_Y = 540;
+const NANONAUT_Y_ACCELERATION = 1;
 /*
 ---------
 - SETUP -
@@ -30,6 +31,9 @@ backgroundImage.src = "Images/background.png";
 
 var nanonautX = 50;
 var nanonautY = 40;
+var nanonautYSpeed = 0;
+
+window.addEventListener('keydown', onKeyDown)
 
 window.addEventListener('load', start);
 
@@ -52,7 +56,13 @@ function mainLoop() {
 ------------
 */
 function update() {
-    // No update function yet lol
+    // Update Nanonaut.
+    nanonautY = nanonautY +  nanonautYSpeed
+    nanonautYSpeed = nanonautYSpeed + NANONAUT_Y_ACCELERATION
+    if (nanonautY > (GROUND_Y - NANONAUT_HEIGHT)) {
+        nanonautY =  GROUND_Y - NANONAUT_HEIGHT
+        nanonautYSpeed = 0
+    }
 }
 /*
 -----------
