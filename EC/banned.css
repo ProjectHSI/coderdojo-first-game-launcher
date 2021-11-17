@@ -23,25 +23,13 @@
 
 #sendback {
     font-size: 200%;
-    background-color: rgba(255, 255, 255, 0.10);
     color: darkred;
     border-radius: 10px;
-    height: 15vh;
-    width: 20vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-
-#sendback:hover {
-    animation-name: fadein;
-    animation-duration: 1s;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-    animation-timing-function: cubic-bezier(0.5,1,1,0.5);
-    animation-fill-mode: backwards;
 }
 
 @keyframes fadein {
